@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title> Skeleton </title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+	
+	<script type="text/javascript" src="app.js"></script>
+	
+  </head>
+
+  
+  <body ng-app="myApp">
+
+    <div ng-controller="myCtrl">
+	
+	  <div id="title">
+	    <h1>To-do List</h1>
+	  </div>
+	  
+	  <div id="content">
+        <ul>
+	      <li ng-repeat="x in products">
+		    {{ x }} <span ng-click="removeItem($index)">&times;</span>
+		  </li>
+	    </ul>
+	    <div id="inputBox">
+	      <input id="inputField" type="text" placeholder="{{placeholder}}" ng-model="addMe">
+	      <button id="btn" ng-click="addItem()">Add</button>
+		  <p id="error">{{ errorText}} </p>
+		</div>
+	    
+	  </div>
+	  
+	  <script type="text/javascript" src="script.js"></script>
+	  
+    </div>
+	
+  </body>
+</html>
