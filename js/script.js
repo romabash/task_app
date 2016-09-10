@@ -9,6 +9,7 @@ function hide (obj){
 function show(){
 	errorMessage.style.visibility = 'visible';
 	setTimeout(function(){hide(errorMessage)}, 2000);
+  document.getElementById("inputField").focus();
 }
 
 var myButton = document.getElementById('btn');
