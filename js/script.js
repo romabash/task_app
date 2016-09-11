@@ -1,3 +1,4 @@
+document.getElementById("inputField").focus();
 
 var errorMessage = document.getElementById('error');
 errorMessage.style.visibility = 'hidden';
@@ -14,8 +15,6 @@ function show(){
 
 var myButton = document.getElementById('btn');
 myButton.onclick = show;
-
-
 
 var inputField = document.getElementById('inputField');
 
