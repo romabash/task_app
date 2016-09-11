@@ -42,6 +42,7 @@ li span {
 	font-size: 20px;
 	font-weight: 700;
 	float: right;
+  cursor: pointer;
 }
 
 #content {
@@ -54,15 +55,13 @@ li span {
 #btn {
 	height: 25px;
 	background-color: #0096aa;
-    border: none;
-    color: white;
-
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-
-    cursor: pointer;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 #inputBox {

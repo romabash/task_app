@@ -14,3 +14,14 @@ function show(){
 
 var myButton = document.getElementById('btn');
 myButton.onclick = show;
+
+
+
+var inputField = document.getElementById('inputField');
+
+inputField.addEventListener('keyup', function(event){
+  event.preventDefault();
+  if(event.keyCode == 13) {
+    myButton.click();
+  }
+});
