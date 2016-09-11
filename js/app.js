@@ -24,6 +24,9 @@
 	    $scope.errorText = "";
 	    $scope.products.splice(x,1);
 	  }
+    $scope.removeAll = function(){
+      $scope.products = [];
+    }
   });
   
 })(); 

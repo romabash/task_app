@@ -7,6 +7,7 @@ html, body{
 }
 
 #title {
+  position: relative;
 	box-sizing: border-box;
 	width: 300px;
 	padding-left: 10px;
@@ -15,13 +16,21 @@ html, body{
 }
 
 h1 {
+  display: inline-block;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #595959;
 	padding-top: 20px;
 	padding-bottom: 10px;
 	margin-bottom: 0;
 }
-
+#btn1{
+  position: absolute;
+  top: 43px;
+  right: 20px;
+  background-color:#ff8080;
+  font-size: 16px;
+  height: 30px;
+}
 ul {
 	margin: 0;
 	padding: 10px;
@@ -36,7 +45,6 @@ li {
 	box-sizing: border-box;
   width: 100%;
   color: #003333;
-  font-weight: 600;
 	padding: 8px 15px;
 	background-color: #eaeff4;
 	border-bottom: 1px solid #a9bcca;
@@ -44,8 +52,10 @@ li {
 
 li span {
 	font-size: 20px;
+  font-weight: bold;
 	float: right;
   cursor: pointer;
+  color: #ff8080;
 }
 
 #content {
@@ -55,7 +65,7 @@ li span {
 #inputField {
 	height: 20px;
 } 
-#btn {
+.btn {
 	height: 25px;
 	background-color: #0096aa;
   border: none;
