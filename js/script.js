@@ -23,7 +23,7 @@ function hide (obj){
 //Shows error message and hides after 2 seconds
 function show(){
 	errorMessage.style.visibility = 'visible';
-	setTimeout(function(){hide(errorMessage)}, 2000);
+	setTimeout(function(){hide(errorMessage)}, 5000);
   document.getElementById("inputField").focus();
 }
 

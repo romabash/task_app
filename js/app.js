@@ -16,7 +16,7 @@
 	      $scope.addMe = "";
 	    }
 	    else{
-		    $scope.errorText = "Item alrady in the list";
+		    $scope.errorText = "Item already in the list";
 		    $scope.addMe = "";
 	    }
 	  }

@@ -83,8 +83,13 @@ li span {
 	text-align: center;
 	padding-bottom: 40px;
 }
+
+
 #error {
-	text-align: left;
-	padding-left: 10px;
-	color: #a74b59;
+  width: 75%;
+  margin: 20px auto;
+  font-size: 18px;
+  text-align: center;
+	background-color: #ff8080;
+  color: white;
 }
