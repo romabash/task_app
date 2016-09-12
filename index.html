@@ -16,14 +16,14 @@
   
   <body ng-app="myApp">
 
-    <div ng-controller="myCtrl">
+    <div id="myCtrl" ng-controller="myCtrl">
 	    <section id="title">
 	      <h1>To-do List</h1>
         <button class="btn" id="btn1" ng-click="removeAll()">Clear</button>
 	    </section>
 	  
 	    <section id="content">
-        <ul>
+        <ul id="list">
 	        <li ng-repeat="x in products">
 		       {{ x }} <span ng-click="removeItem($index)">&times;</span>
 		      </li>
