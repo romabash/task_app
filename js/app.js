@@ -4,47 +4,47 @@
   
   angular.module('MyApp', [])
   .controller('TaskCtrl', TaskCtrl) //set up controller with its function
-	.service('StorageService', StorageService)  //set up service with its main function
-	.factory('TaskFactory', TaskFactory);  //set up service with its function
+  .service('StorageService', StorageService)  //set up service with its main function
+  .factory('TaskFactory', TaskFactory);  //set up service with its function
     
 //Controller
   TaskCtrl.$inject = ['TaskFactory'];
   function TaskCtrl(TaskFactory){
     var list = this;
-	  var taskList = TaskFactory(); //setting taskList to be the returned TaskService
+    var taskList = TaskFactory(); //setting taskList to be the returned TaskService
 	  
-	  list.items = taskList.getItems(); //getting items from TaskService
-	  list.addMe = ""; //new task from User input
+    list.items = taskList.getItems(); //getting items from TaskService
+    list.addMe = ""; //new task from User input
     
     //adds item using TaskService addItem function
     list.addItem = function(){
-		  try{
-		    list.errorMessage = "";
-		    taskList.addItem(list.addMe);
-		    list.addMe = "";
-		  }
+      try{
+        list.errorMessage = "";
+	taskList.addItem(list.addMe);
+	list.addMe = "";
+      }
       catch (error){
-		    list.errorMessage = error.message; //'thrown' error in TaskService
-		    list.addMe = "";
-		  }
-	  };
+	list.errorMessage = error.message; //'thrown' error in TaskService
+	list.addMe = "";
+      }
+    };
     
     list.removeItem = function (itemIndex){
-		  taskList.removeItem(itemIndex);
-		  list.errorMessage = "";
-		  list.addMe = "";
-	  };
+      taskList.removeItem(itemIndex); 
+      list.errorMessage = "";
+      list.addMe = "";
+    };
     
     list.clear = function(){
-		  taskList.clear();
-		  list.errorMessage = "";
-		  list.addMe = "";
-	  };
+      taskList.clear();
+      list.errorMessage = "";
+      list.addMe = "";
+    };
     
     list.undo = function(){
-		  taskList.undo();
-		  list.items = taskList.getItems(); //reinitialize items 
-	  };
+      taskList.undo();
+      list.items = taskList.getItems(); //reinitialize items 
+    };
   }
   
 //Service - StorageService
@@ -54,7 +54,7 @@
     //loads data from LocalStorage
     service.load = function(){
       var load = JSON.parse(localStorage.getItem("tasks")) || [];
-		  return load;
+      return load;
     };
     
     //saves data to LocalStorage
@@ -85,33 +85,33 @@
     
     service.removeItem = function(itemIndex){
       temp = StorageService.load(); //assign LocalStorage data before deleting a task
-	    items.splice(itemIndex,1); 
-		  StorageService.save(items); //after deleting, save to LocalStorage
+      items.splice(itemIndex,1); 
+      StorageService.save(items); //after deleting, save to LocalStorage
     };
     
     service.clear = function(){
       temp = StorageService.load(); //assign LocalStorage data before clearing all tasks
       items.splice(0,items.length);
       StorageService.save(items); //after clearing all tasks, save to LocalStorage
-	  };
+    };
     
     service.undo = function(){		
-	    items = temp;  //assign items to the previous data stored in temp
-		  StorageService.save(items); //save to LocalStorage to update
-	  };
+      items = temp;  //assign items to the previous data stored in temp
+      StorageService.save(items); //save to LocalStorage to update
+    };
     
     service.getItems = function(){
-		  return items; 
-	  };
+      return items; 
+    };
   }
 
 //Factory - for TaskService
-	function TaskFactory(StorageService){
-	  var factory = function(){
-		  return new TaskService(StorageService);  
-	  };
-	  return factory;
-	}
+  function TaskFactory(StorageService){
+    var factory = function(){
+      return new TaskService(StorageService);  
+    };
+    return factory;
+  }
   
 })(); 
 

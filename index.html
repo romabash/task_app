@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="js/angular.min.js"></script>
-	  <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css"> 
 	
   </head>
@@ -16,24 +16,24 @@
   <body ng-app="MyApp">
 
     <div id="myCtrl" ng-controller="TaskCtrl as list">
-	    <section id="title">
-	      <h1>To-do List</h1>
+      <section id="title">
+        <h1>To-do List</h1>
         <button class="btn" id="btn1" ng-click="list.clear()">Clear</button>
-	    </section>
+      </section>
 	  
-	    <section id="content">
+      <section id="content">
         <ul id="list">
-	        <li ng-repeat="x in list.items">
-		       {{ x }} <span ng-click="list.removeItem($index)">&times;</span>
-		      </li>
-	      </ul>
-	      <div id="inputBox">
-	        <input id="inputField" type="text" placeholder="Enter a task" ng-model="list.addMe">
-	        <button class="btn" id="btn2" ng-click="list.addItem()">Add</button>
+          <li ng-repeat="x in list.items">
+            {{ x }} <span ng-click="list.removeItem($index)">&times;</span>
+	  </li>
+	</ul>
+        <div id="inputBox">
+	  <input id="inputField" type="text" placeholder="Enter a task" ng-model="list.addMe">
+	  <button class="btn" id="btn2" ng-click="list.addItem()">Add</button>
           <button class="btn" id="btn3" ng-click="list.undo()">Undo</button>
           <p id="error">{{ list.errorMessage}} </p>
-		    </div> 
-	    </section>
+        </div> 
+      </section>
 
     </div> <!-- Closes myCtrl -->
     
