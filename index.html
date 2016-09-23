@@ -8,7 +8,7 @@
 
     <script src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css"> 
+    <link rel="stylesheet" type="text/css" href="styles/main.css"> 
 	
   </head>
 
@@ -25,11 +25,11 @@
         <ul id="list">
           <li ng-repeat="x in list.items">
             {{ x }} <span ng-click="list.removeItem($index)">&times;</span>
-	  </li>
-	</ul>
+          </li>
+        </ul>
         <div id="inputBox">
-	  <input id="inputField" type="text" placeholder="Enter a task" ng-model="list.addMe">
-	  <button class="btn" id="btn2" ng-click="list.addItem()">Add</button>
+          <input id="inputField" type="text" placeholder="Enter a task" ng-model="list.addMe">
+          <button class="btn" id="btn2" ng-click="list.addItem()">Add</button>
           <button class="btn" id="btn3" ng-click="list.undo()">Undo</button>
           <p id="error">{{ list.errorMessage}} </p>
         </div> 
