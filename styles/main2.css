@@ -1,3 +1,7 @@
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 #title h1{
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
@@ -12,17 +16,21 @@
 .input-area .glyphicon {
   position: absolute;
   pointer-events: none;
-  padding: 8px 10px;
-  font-size: 1.2em;
+  padding: 18px 15px;
+  font-size: 1.5em;
   left:  0px;
   color:  #C7C7CD;
 }
 /* add padding  */
 .input-area input  { 
-  padding-left:  35px;
+  padding-left:  50px;
   font-size: 1.2em; 
   border-radius: 0;
   border-bottom: solid 1px #a9bcca;
+}
+#inputField{
+  height: 60px;
+  font-size: 24px;
 }
 
 
@@ -32,16 +40,23 @@ ul {
 }
 
 li {
-    color: #003333;
-	padding: 8px 15px;
-	background-color: #eaeff4;
-	border: 1px solid #a9bcca;
+  color: #003333;
+  padding: 8px 15px;
+  background-color: #eaeff4;
+  border: 1px solid #a9bcca;
+  font-size: 30px;
 }
 
-li span {
-	font-size: 20px;
+li i {
+  font-size: 30px;
   font-weight: bold;
-	float: right;
   cursor: pointer;
-  color: #ff8080;
+}
+li i:first-child {
+	color: green;
+	padding-right: 15px;
+}
+li i:nth-child(2) {
+	float: right;
+	color: red;
 }
