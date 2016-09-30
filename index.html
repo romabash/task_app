@@ -25,7 +25,7 @@
       <section id="title">
         <h1>To-do List</h1>
         <div class="input-area">
-          <i class="glyphicon glyphicon-menu-down"></i>
+          <i class="glyphicon glyphicon-pencil"></i>
           <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
         </div>
       </section>
@@ -34,19 +34,19 @@
         <ul id="list">
           <li ng-repeat="x in list.items">
             <i ng-click="list.removeItem($index)">&#10003</i>
-            {{ x }} 
-            <i ng-click="list.removeItem($index)">&#10007</i>
+						<i ng-click="list.removeItem($index)">&#10007</i>
+						{{ x }} 
           </li>
         </ul>
-        <div id="inputBox">
-          
-          <button class="btn btn-default" id="btn2" ng-click="list.addItem()">Add</button>
-          <button class="btn btn-default" id="btn1" ng-click="list.clear()">Clear</button>
-          <button class="btn btn-default" id="btn3" ng-click="list.undo()">Undo</button>
+        <div id="inputBox"> 
+				  {{ list.numberOfTasks}} 
+          <button class="btn btn-default pull-right" id="btn3" ng-click="list.clear()">Clear</button>
+          <button class="btn btn-default pull-right" id="btn2" ng-click="list.undo()">Undo</button>
+					<button class="btn btn-default pull-right" id="btn1" ng-click="list.addItem()">Add</button>
+
           <div class="form-group message">
-           <p id="error">{{ list.errorMessage}} </p>
+            <p id="error">{{ list.errorMessage}} </p>
           </div>
-          
         </div> 
       </section>
 

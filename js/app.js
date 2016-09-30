@@ -13,6 +13,7 @@
     var list = this;
     var taskList = TaskFactory(); //setting taskList to be the returned TaskService
 	  
+		list.numberOfTasks = taskList.howMany();
     list.items = taskList.getItems(); //getting items from TaskService
     list.addMe = ""; //new task from User input
     
@@ -22,10 +23,12 @@
         list.errorMessage = "";
         taskList.addItem(list.addMe);
         list.addMe = "";
+				list.numberOfTasks = taskList.howMany();
       }
       catch (error){
         list.errorMessage = error.message; //'thrown' error in TaskService
         list.addMe = "";
+				list.numberOfTasks = taskList.howMany();
       }
     };
     
@@ -33,18 +36,22 @@
       taskList.removeItem(itemIndex); 
       list.errorMessage = "";
       list.addMe = "";
+			list.numberOfTasks = taskList.howMany();
     };
     
     list.clear = function(){
       taskList.clear();
       list.errorMessage = "";
       list.addMe = "";
+			list.numberOfTasks = taskList.howMany();
     };
     
     list.undo = function(){
       taskList.undo();
       list.items = taskList.getItems(); //reinitialize items 
+			list.numberOfTasks = taskList.howMany();
     };
+		
   }
   
 //Service - StorageService
@@ -68,6 +75,7 @@
     var service = this;
     var items = StorageService.load();
     var temp = StorageService.load();  //holds temporally LocalStorage data
+		var numberOfTasks = "";
     
     service.addItem = function(task){
       if(!task){
@@ -103,6 +111,17 @@
     service.getItems = function(){
       return items; 
     };
+		
+		service.howMany = function(){
+			if(items.length === 0){
+				numberOfTasks = ' ';
+			}else if (items.length === 1){
+				numberOfTasks = items.length + ' task';
+			}else{
+				numberOfTasks = items.length + ' tasks';
+			}
+			return numberOfTasks;
+		};
   }
 
 //Factory - for TaskService

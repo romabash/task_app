@@ -33,20 +33,20 @@ body{
   font-size: 24px;
 }
 
-
+/* Lists */
 ul {
+	margin-bottom: 0;
   padding: 0;
   list-style-type: none;
 }
-
 li {
+	word-break: break-all;
   color: #003333;
   padding: 8px 15px;
   background-color: #eaeff4;
   border: 1px solid #a9bcca;
   font-size: 30px;
 }
-
 li i {
   font-size: 30px;
   font-weight: bold;
@@ -60,3 +60,51 @@ li i:nth-child(2) {
 	float: right;
 	color: red;
 }
+
+/*Bottom buttons */
+#inputBox{
+	height: 60px;
+	font-size: 20px;
+	margin-top: 0;
+	padding: 11px 10px 0;
+  border: 1px solid #a9bcca;
+}
+.btn {
+	text-decoration: none;
+	margin-left: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.btn:active, .btn:focus {
+  outline: none;
+	background-color: white;
+}
+#btn1:hover{
+  background-color: #00cc66;
+	color: white;
+}
+#btn3:hover{
+  background-color: #ff4d4d;
+	color: white;
+}
+#btn2:hover{
+  background-color: #e67300;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
