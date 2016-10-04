@@ -1,4 +1,5 @@
-body{
+html,body{
+  height: 100%
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -10,7 +11,7 @@ body{
 
 /* enable absolute positioning */
 .input-area { 
-    position: relative; 
+  position: relative; 
 }
 /* style icon */
 .input-area .glyphicon {
@@ -75,7 +76,6 @@ li i:nth-child(2) {
 	text-decoration: none;
 	margin-left: 1em;
 	font-size: 1em;
-	font-weight: bold;
 }
 .btn:active, .btn:focus {
   outline: none;
@@ -95,11 +95,96 @@ li i:nth-child(2) {
 }
 
 
+/* Screen Size */
 
+/********** Large devices only **********/
+@media (min-width: 1200px) {
 
+}
 
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
 
+}
 
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 480px)and (max-width: 767px) {
+  #title h1{
+    font-size: 30px;
+  }
+  .input-area input  { 
+    padding-left:  60px;
+  }
+  .input-area .glyphicon {
+    font-size: 18px;
+  }
+  #inputField{
+    height: 3em;
+    font-size: 18px;
+  }
+  li {
+    font-size: 18px;
+  }
+  li i {
+    font-size: 20px;
+  }
+  #inputBox{
+    height: 3em;
+    margin-top: 0;
+    padding: 11px 10px 0;
+    border: 1px solid #a9bcca;
+  }
+  #task-number{
+    font-size: 16px;
+  }
+  .btn {
+    margin-left: 1em;
+    font-size: 14px;
+  }
+}
+
+/********** Super extra small devices Only (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+    #title h1{
+    font-size: 30px;
+  }
+  .input-area input  { 
+    padding-left:  60px;
+  }
+  .input-area .glyphicon {
+    font-size: 18px;
+  }
+  #inputField{
+    height: 3em;
+    font-size: 18px;
+  }
+  li {
+    font-size: 18px;
+  }
+  li i {
+    font-size: 20px;
+  }
+  #inputBox{
+    height: 3em;
+    margin-top: 0;
+    padding: 11px 10px 0;
+    border: 1px solid #a9bcca;
+  }
+  #task-number{
+    font-size: 16px;
+  }
+  .btn {
+    margin-left: 1em;
+    font-size: 14px;
+  }
+}
+
+}
 
 
 

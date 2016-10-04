@@ -21,34 +21,40 @@
   
   <body ng-app="MyApp">
 
-    <div id="myCtrl" class="container" ng-controller="TaskCtrl as list">
-      <section id="title">
-        <h1>To-do List</h1>
-        <div class="input-area">
-          <i class="glyphicon glyphicon-pencil"></i>
-          <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
-        </div>
-      </section>
+    <div class="container" ng-controller="TaskCtrl as list">
+      <!-- Title and Input --> 
+        <section id="title" class="row">
+          <h1>To-do List</h1>
+          <div class="input-area">
+            <i class="glyphicon glyphicon-pencil"></i>
+            <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
+          </div>
+        </section>
 	  
-      <section id="content">
-        <ul id="list">
-          <li ng-repeat="x in list.items">
-            <i ng-click="list.removeItem($index)">&#10003</i>
-						<i ng-click="list.removeItem($index)">&#10007</i>
-						{{ x }} 
-          </li>
-        </ul>
-        <div id="inputBox"> 
-				  <div id="task-number" class="pull-left">{{ list.numberOfTasks}} </div>
-          <button class="btn btn-default pull-right" id="btn3" ng-click="list.clear()">Clear</button>
-          <button class="btn btn-default pull-right" id="btn2" ng-click="list.undo()">Undo</button>
-					<button class="btn btn-default pull-right" id="btn1" ng-click="list.addItem()">Add</button>
+      <!-- Task List --> 
+        <section id="content" class="row">
+          <ul id="list">
+            <li ng-repeat="x in list.items">
+              <i ng-click="list.removeItem($index)">&#10003</i>
+					  	<i ng-click="list.removeItem($index)">&#10007</i>
+					  	{{ x }} 
+            </li>
+          </ul>
+        </section>
+
+      <!-- Buttons --> 
+        <section id="inputBox" class="row"> 
+				  <div id="task-number" class="col-sm-6 col-xs-2" >{{ list.numberOfTasks}} </div>
+          <div class="col-sm-6 col-xs-10">
+            <button class="btn btn-default pull-right" id="btn3" ng-click="list.clear()">Clear</button>
+            <button class="btn btn-default pull-right" id="btn2" ng-click="list.undo()">Undo</button>
+					  <button class="btn btn-default pull-right" id="btn1" ng-click="list.addItem()">Add</button>
+          </div>
 
           <div class="form-group message">
             <p id="error">{{ list.errorMessage}} </p>
           </div>
-        </div> 
-      </section>
+        </section> 
 
     </div> <!-- Closes TaskCtrl -->
     
