@@ -16,7 +16,7 @@ body{
 .input-area .glyphicon {
   position: absolute;
   pointer-events: none;
-  padding: 18px 15px;
+  padding: 18px 20px;
   font-size: 1.5em;
   left:  0px;
   color:  #C7C7CD;
@@ -24,13 +24,12 @@ body{
 /* add padding  */
 .input-area input  { 
   padding-left:  50px;
-  font-size: 1.2em; 
   border-radius: 0;
   border-bottom: solid 1px #a9bcca;
 }
 #inputField{
-  height: 60px;
-  font-size: 24px;
+  height: 3em;
+  font-size: 1.5em;
 }
 
 /* Lists */
@@ -45,10 +44,10 @@ li {
   padding: 8px 15px;
   background-color: #eaeff4;
   border: 1px solid #a9bcca;
-  font-size: 30px;
+  font-size: 1.5em;
 }
 li i {
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
 }
@@ -63,16 +62,19 @@ li i:nth-child(2) {
 
 /*Bottom buttons */
 #inputBox{
-	height: 60px;
-	font-size: 20px;
+	height: 3.5em;
+	font-size: 1.2em;
 	margin-top: 0;
 	padding: 11px 10px 0;
   border: 1px solid #a9bcca;
 }
+#task-number{
+	font-size: 1.2em;
+}
 .btn {
 	text-decoration: none;
-	margin-left: 20px;
-	font-size: 16px;
+	margin-left: 1em;
+	font-size: 1em;
 	font-weight: bold;
 }
 .btn:active, .btn:focus {

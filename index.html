@@ -39,7 +39,7 @@
           </li>
         </ul>
         <div id="inputBox"> 
-				  {{ list.numberOfTasks}} 
+				  <div id="task-number" class="pull-left">{{ list.numberOfTasks}} </div>
           <button class="btn btn-default pull-right" id="btn3" ng-click="list.clear()">Clear</button>
           <button class="btn btn-default pull-right" id="btn2" ng-click="list.undo()">Undo</button>
 					<button class="btn btn-default pull-right" id="btn1" ng-click="list.addItem()">Add</button>
