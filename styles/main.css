@@ -38,7 +38,7 @@ ul {
   list-style-type: none;
 }
 li {
-  word-break: break-all;
+  word-break: normal;
   color: #003333;
   padding: 2vmin 2vmin;
   background-color: #eaeff4;
