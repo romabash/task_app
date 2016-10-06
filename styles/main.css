@@ -1,0 +1,105 @@
+
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#title h1{
+  text-align: center;
+  font-size: 10vmin;
+}
+
+/* enable absolute positioning */
+.input-area { 
+  position: relative; 
+}
+/* style icon */
+.input-area .glyphicon {
+  position: absolute;
+  pointer-events: none;
+  padding: 2vmin 2vmin;
+  font-size: 5vmin;
+  color:  #C7C7CD;
+}
+/* add padding  */
+.input-area input  { 
+  padding-left:  10vmin;
+  border-radius: 0;
+  border-bottom: solid 1px #a9bcca;
+}
+#inputField{
+  height: 10vmin;
+  font-size: 5vmin;
+}
+
+/* Lists */
+ul {
+  margin-bottom: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  word-break: break-all;
+  color: #003333;
+  padding: 2vmin 2vmin;
+  background-color: #eaeff4;
+  border: 1px solid #a9bcca;
+  font-size: 5vmin;
+}
+li i {
+  font-size: 5vmin;
+  font-weight: bold;
+  cursor: pointer;
+}
+li i:first-child {
+  color: green;
+  padding-right: 3vmin;
+}
+li i:nth-child(2) {
+  float: right;
+  color: red;
+}
+
+/*Bottom buttons */
+#inputBox{
+  height: 15vmin;
+  font-size: 5vmin;
+  margin-top: 0;
+  padding: 2vmin 2vmin 0;
+  border: 1px solid #a9bcca;
+}
+#display{
+  font-size: 5vmin;
+  padding: 2vmin 2vmin 0;
+}
+.btn {
+  height: 10vmin;
+  text-decoration: none;
+  margin-left: 2vmin;
+  font-size: 5vmin;
+}
+.btn:active, .btn:focus {
+  outline: none;
+  background-color: white;
+}
+#btn1:hover{
+  background-color: #00cc66;
+  color: white;
+}
+#btn3:hover{
+  background-color: #ff4d4d;
+  color: white;
+}
+#btn2:hover{
+  background-color: #e67300;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+

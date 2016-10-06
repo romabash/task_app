@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/main2.css"> 
+    <link rel="stylesheet" type="text/css" href="styles/main.css"> 
 
+    <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/app.js"></script>
 
     <link href="styles/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
@@ -21,40 +22,33 @@
   
   <body ng-app="MyApp">
 
-    <div class="container" ng-controller="TaskCtrl as list">
-      <!-- Title and Input --> 
-        <section id="title" class="row">
-          <h1>To-do List</h1>
-          <div class="input-area">
-            <i class="glyphicon glyphicon-pencil"></i>
-            <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
-          </div>
-        </section>
-	  
-      <!-- Task List --> 
-        <section id="content" class="row">
-          <ul id="list">
-            <li ng-repeat="x in list.items">
-              <i ng-click="list.removeItem($index)">&#10003</i>
-					  	<i ng-click="list.removeItem($index)">&#10007</i>
-					  	{{ x }} 
-            </li>
-          </ul>
-        </section>
+    <!-- Main container for Task Ctrl -->
+    <div id="myCtrl" class="container" ng-controller="TaskCtrl as list"> 
+  
+      <section id="title">
+        <h1>To-do List</h1>
+        <div class="input-area">
+          <i class="glyphicon glyphicon-pencil"></i>
+          <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
+        </div>
+      </section>
+    
+    <section id="content">
 
-      <!-- Buttons --> 
-        <section id="inputBox" class="row"> 
-				  <div id="task-number" class="col-sm-6 col-xs-2" >{{ list.numberOfTasks}} </div>
-          <div class="col-sm-6 col-xs-10">
-            <button class="btn btn-default pull-right" id="btn3" ng-click="list.clear()">Clear</button>
-            <button class="btn btn-default pull-right" id="btn2" ng-click="list.undo()">Undo</button>
-					  <button class="btn btn-default pull-right" id="btn1" ng-click="list.addItem()">Add</button>
-          </div>
+      <display-task 
+        items='list.items' 
+        on-remove='list.removeItem(index)'>
+      </display-task> 
+    
+      <manage-task 
+        error="list.error"
+        number-of-tasks="{{list.numberOfTasks}}"
+        on-undo="list.undo()"
+        on-clear="list.clear()"
+        on-add="list.addItem()">
+      </manage-task> 
 
-          <div class="form-group message">
-            <p id="error">{{ list.errorMessage}} </p>
-          </div>
-        </section> 
+    </section>
 
     </div> <!-- Closes TaskCtrl -->
     
