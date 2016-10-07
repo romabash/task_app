@@ -5,7 +5,7 @@ body{
 
 #title h1{
   text-align: center;
-  font-size: 10vmin;
+  font-size: 10vw;
 }
 
 /* enable absolute positioning */
@@ -16,19 +16,19 @@ body{
 .input-area .glyphicon {
   position: absolute;
   pointer-events: none;
-  padding: 2vmin 2vmin;
-  font-size: 5vmin;
+  padding: 2vw 2vw;
+  font-size: 5vw;
   color:  #C7C7CD;
 }
 /* add padding  */
 .input-area input  { 
-  padding-left:  10vmin;
+  padding-left:  10vw;
   border-radius: 0;
   border-bottom: solid 1px #a9bcca;
 }
 #inputField{
-  height: 10vmin;
-  font-size: 5vmin;
+  height: 10vw;
+  font-size: 5vw;
 }
 
 /* Lists */
@@ -38,21 +38,21 @@ ul {
   list-style-type: none;
 }
 li {
-  word-break: normal;
+  word-break: break-all;
   color: #003333;
-  padding: 2vmin 2vmin;
+  padding: 2vw 2vw;
   background-color: #eaeff4;
   border: 1px solid #a9bcca;
-  font-size: 5vmin;
+  font-size: 5vw;
 }
 li i {
-  font-size: 5vmin;
+  font-size: 5vw;
   font-weight: bold;
   cursor: pointer;
 }
 li i:first-child {
   color: green;
-  padding-right: 3vmin;
+  padding-right: 3vw;
 }
 li i:nth-child(2) {
   float: right;
@@ -61,21 +61,21 @@ li i:nth-child(2) {
 
 /*Bottom buttons */
 #inputBox{
-  height: 15vmin;
-  font-size: 5vmin;
+  height: 15vw;
+  font-size: 5vw;
   margin-top: 0;
-  padding: 2vmin 2vmin 0;
+  padding: 2vw 2vw 0;
   border: 1px solid #a9bcca;
 }
 #display{
-  font-size: 5vmin;
-  padding: 2vmin 2vmin 0;
+  font-size: 5vw;
+  padding: 2vw 2vw 0;
 }
 .btn {
-  height: 10vmin;
+  height: 10vw;
   text-decoration: none;
-  margin-left: 2vmin;
-  font-size: 5vmin;
+  margin-left: 2vw;
+  font-size: 5vw;
 }
 .btn:active, .btn:focus {
   outline: none;
@@ -92,6 +92,75 @@ li i:nth-child(2) {
 #btn2:hover{
   background-color: #e67300;
   color: white;
+}
+
+/* Screen Size */
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  #title h1{
+    font-size: 10vmin;
+  }
+  /* style icon */
+  .input-area .glyphicon {
+    padding: 2vmin 2vmin;
+    font-size: 5vmin;
+  }
+  /* add padding  */
+  .input-area input  { 
+    padding-left:  10vmin;
+  }
+  #inputField{
+    height: 10vmin;
+    font-size: 5vmin;
+  }
+
+  /* Lists */
+  li {
+    padding: 2vmin 2vmin;
+    font-size: 5vmin;
+  }
+  li i {
+    font-size: 5vmin;
+  }
+  li i:first-child {
+    padding-right: 3vmin;
+  }
+/*Bottom buttons */
+  #inputBox{
+    height: 15vmin;
+    font-size: 5vmin;
+    padding: 2vmin 2vmin 0;
+  }
+  #display{
+    font-size: 5vmin;
+    padding: 2vmin 2vmin 0;
+  }
+  .btn {
+    height: 10vmin;
+    margin-left: 2vmin;
+    font-size: 5vmin;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 480px)and (max-width: 767px) {
+
+}
+
+/********** Super extra small devices Only (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
 }
 
 
