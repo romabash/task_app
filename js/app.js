@@ -8,14 +8,14 @@
   .service('StorageService', StorageService)  //set up service with its main function
   .factory('TaskFactory', TaskFactory)  //set up service with its function
   .component('displayTask', {
-  templateUrl: 'dislayTask.html',
-  //template: '<ul id="list">\
-  //               <li ng-repeat="x in $ctrl.items">\
-  //                 <i ng-click="$ctrl.remove($index)">&#10003</i>\
-  //           <i ng-click="$ctrl.remove($index)">&#10007</i>\
-  //           {{ x }} \
-  //               </li>\
-  //             </ul>',
+  //templateUrl: 'dislayTask.html',
+  template: '<ul id="list">\
+                 <li ng-repeat="x in $ctrl.items">\
+                   <i ng-click="$ctrl.remove($index)">&#10003</i>\
+             <i ng-click="$ctrl.remove($index)">&#10007</i>\
+             {{ x }} \
+                 </li>\
+               </ul>',
   controller: DisplayTaskComponentController,
   bindings: {
     items: '<',
@@ -23,13 +23,13 @@
   } 
   })
   .component('manageTask', {
-  templateUrl: 'manageTask.html',
-  //template: '<div id="inputBox">\
-  //          <div id="display" class="pull-left">{{ $ctrl.numberOfTasks}} </div>\
-  //              <button class="btn btn-default pull-right" id="btn3" ng-click="$ctrl.onClear()">Clear</button>\
-  //              <button class="btn btn-default pull-right" id="btn2" ng-click="$ctrl.onUndo()">Undo</button>\
-  //          <button class="btn btn-default pull-right" id="btn1" ng-click="$ctrl.onAdd()">Add</button>\
-  //            </div>',
+  //templateUrl: 'manageTask.html',
+  template: '<div id="inputBox">\
+            <div id="display" class="pull-left">{{ $ctrl.numberOfTasks}} </div>\
+                <button class="btn btn-default pull-right" id="btn3" ng-click="$ctrl.clear()">Clear</button>\
+                <button class="btn btn-default pull-right" id="btn2" ng-click="$ctrl.undo()" ng-if="$ctrl.showUndo">Undo</button>\
+            <button class="btn btn-default pull-right" id="btn1" ng-click="$ctrl.add()">Add</button>\
+              </div>',
   controller: ManageTaskComponentController,
   bindings: {
     numberOfTasks: '@numberOfTasks',
@@ -41,9 +41,25 @@
   });
   
 //Component Controller - Manage
-  ManageTaskComponentController.$inject = ['$element'];
-  function ManageTaskComponentController($element){
+  ManageTaskComponentController.$inject = ['$element', '$rootScope'];
+  function ManageTaskComponentController($element, $rootScope){
     var $ctrl = this;
+
+    $ctrl.undo = function(){
+      $ctrl.onUndo();
+      //Turn off broadcast 
+      $rootScope.$broadcast('undo:processing', {on: false});
+    };
+    $ctrl.clear = function(){
+      $ctrl.onClear();
+      //broadcast to display Undo when item is removed
+      $rootScope.$broadcast('undo:processing', {on: true});
+    };
+    $ctrl.add = function(){
+      $ctrl.onAdd();
+      //Turn off broadcast 
+      $rootScope.$broadcast('undo:processing', {on: false});
+    };
   
     $ctrl.$doCheck = function(){
       var warningElem = $element.find('#display'); 
@@ -56,15 +72,45 @@
         warningElem.css('color', 'black');      
       }
     };
+
+    //listen to broadcast to display Undo when item is removed
+    var cancelListener = $rootScope.$on('undo:processing', function (event, data) {
+      if (data.on) {
+        $ctrl.showUndo = true;
+      }
+      else {
+        $ctrl.showUndo = false;
+      }
+    });
+    //Destroy $rootScope
+    $ctrl.$onDestroy = function () {
+      cancelListener();
+    };
   }
 
 //Component Controller - Display
-  function DisplayTaskComponentController(){
+  function DisplayTaskComponentController($rootScope){
     var $ctrl = this;
+    var removed;
+    var deleted;
+
+    $ctrl.$onInit = function () {
+      removed = false;
+    };
+
+    //broadcast to display Undo when item is removed
+    $ctrl.$doCheck = function () {
+      if( removed != deleted)
+        $rootScope.$broadcast('undo:processing', {on: true});
+        deleted = false;
+      };
   
     $ctrl.remove = function(myIndex){
       $ctrl.onRemove({index: myIndex});
+      deleted = true;
     };
+
+
   }
   
 //Controller
