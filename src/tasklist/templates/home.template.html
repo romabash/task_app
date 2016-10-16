@@ -1,0 +1,21 @@
+
+<section class="container">
+  <welcome-task add-me="list.addMe"></welcome-task>
+</section>
+
+<section id="content" class="container">
+
+  <display-task 
+    items="list.items" 
+    on-remove="list.removeItem(index)">
+  </display-task>
+
+  <manage-task 
+    error="list.error"
+    number-of-tasks="{{list.numberOfTasks}}"
+    on-undo="list.undo()"
+    on-clear="list.clear()"
+    on-add="list.addItem()">
+  </manage-task>
+
+</section>

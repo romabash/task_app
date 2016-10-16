@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='TaskList'>
   <head>
     <title> Task App </title>
     <meta charset="utf-8" />
@@ -9,48 +8,34 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css"> 
 
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
-
     <link href="styles/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
     
-	
   </head>
 
+  <body>
   
-  <body ng-app="MyApp">
-
-    <!-- Main container for Task Ctrl -->
-    <div id="myCtrl" class="container" ng-controller="TaskCtrl as list"> 
+  <h1>To-do List</h1>
   
-      <section id="title">
-        <h1>To-do List</h1>
-        <div class="input-area">
-          <i class="glyphicon glyphicon-pencil"></i>
-          <input id="inputField" type="text" class="form-control" placeholder="Enter a task" ng-model="list.addMe">
-        </div>
-      </section>
+  <ui-view></ui-view>
     
-    <section id="content">
-
-      <display-task 
-        items='list.items' 
-        on-remove='list.removeItem(index)'>
-      </display-task> 
-    
-      <manage-task 
-        error="list.error"
-        number-of-tasks="{{list.numberOfTasks}}"
-        on-undo="list.undo()"
-        on-clear="list.clear()"
-        on-add="list.addItem()">
-      </manage-task> 
-
-    </section>
-
-    </div> <!-- Closes TaskCtrl -->
+  <!-- Libraries -->
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
+  
+  <!-- Modules -->
+  <script src="src/tasklist/tasklist.module.js"></script>
+  
+  <!-- Routes -->
+  <script src="src/routes.js"></script> 
+  
+  <!-- TaskList's module artifacts -->
+  <script src="src/tasklist/storage.service.js"></script>
+  <script src="src/tasklist/task.service.js"></script>
+  <script src="src/tasklist/task.controller.js"></script>
+  <script src="src/tasklist/welcometask.component.js"></script>
+  <script src="src/tasklist/displaytask.component.js"></script>
+  <script src="src/tasklist/managetask.component.js"></script>
     
   </body>
 </html>
