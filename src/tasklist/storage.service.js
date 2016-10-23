@@ -8,15 +8,15 @@
   function StorageService(){
     var service = this;
     
-    //loads data from LocalStorage
-    service.load = function(){
-      var load = JSON.parse(localStorage.getItem("tasks")) || [];
+    //loads data from LocalStorage - provide name
+    service.load = function(name){
+      var load = JSON.parse(localStorage.getItem(name)) || [];
       return load;
     };
     
-    //saves data to LocalStorage
-    service.save = function(items){
-      localStorage.setItem("tasks", JSON.stringify(items));
+    //saves data to LocalStorage - provide name and data
+    service.save = function(name, items){
+      localStorage.setItem(name, JSON.stringify(items));
     };
   }
 	

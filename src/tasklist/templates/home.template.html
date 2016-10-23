@@ -1,13 +1,17 @@
 
 <section class="container">
-  <welcome-task add-me="list.addMe"></welcome-task>
-</section>
 
-<section id="content" class="container">
+  <welcome-task
+    add-me="list.addMe"
+    items="list.items">
+  </welcome-task>
 
   <display-task 
     items="list.items" 
-    on-remove="list.removeItem(index)">
+    on-remove="list.removeItem(index)"
+    on-check="list.checkItem(index)"
+    on-uncheck="list.unCheckItem(index)"
+    on-edit="list.edit(index)">
   </display-task>
 
   <manage-task 
@@ -19,3 +23,4 @@
   </manage-task>
 
 </section>
+

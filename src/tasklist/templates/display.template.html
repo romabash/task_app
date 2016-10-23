@@ -1,7 +1,13 @@
+
 <ul id="list">
-  <li ng-repeat="x in $ctrl.items">
-    <i ng-click="$ctrl.remove($index)">&#10003</i>
-    <i ng-click="$ctrl.remove($index)">&#10007</i>
-    {{ x }} 
+  <li ng-repeat="x in $ctrl.items | filter: $ctrl.searchFilter |filter: $ctrl.condition track by x.task">
+    <i id="check" ng-click="$ctrl.check($ctrl.items.indexOf(x))" ng-if="!x.done">&#10003</i>
+    <i id="uncheck" ng-click="$ctrl.uncheck($ctrl.items.indexOf(x))" ng-if="x.done">&#10003</i>
+    <i ng-click="$ctrl.remove($ctrl.items.indexOf(x))">&#10007</i>
+    {{ x.task | limitTo: 20}}{{x.task.length > 20 ? "..." : ""}} 
+    <button class="btn btn-default" ng-click="$ctrl.edit($ctrl.items.indexOf(x))">Edit</button>
   </li>
 </ul>
+<button class="btn btn-default pull-right" id="btn1" ng-click="$ctrl.displayAll()">All</button>
+<button class="btn btn-default pull-right" id="btn1" ng-click="$ctrl.displayComplete()">Complete</button>
+<button class="btn btn-default pull-right" id="btn1" ng-click="$ctrl.displayIncomplete()">Incomple</button>

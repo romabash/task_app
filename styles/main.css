@@ -50,13 +50,25 @@ li i {
   font-weight: bold;
   cursor: pointer;
 }
-li i:first-child {
+/* checked and unchecked tasks */
+#check{
+  color: #C7C7CD;
+  padding-right: 3vw;
+}
+#uncheck{
   color: green;
   padding-right: 3vw;
 }
-li i:nth-child(2) {
+li i:last-child {
   float: right;
   color: red;
+}
+
+.checked{
+  color: blue;
+}
+.unchecked{
+  color: grey;
 }
 
 /*Bottom buttons */
