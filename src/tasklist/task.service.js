@@ -52,12 +52,14 @@
 	    items[itemIndex].done = true;
 	    StorageService.save("allTasks", items); //saves checked task into LocalStorage
       temp = StorageService.load("allTasks"); //assign new LocalStorage data with checked allTasks
+			editIndex = false;
     };
 	
     service.unCheckItem = function(itemIndex){
 	    items[itemIndex].done = false;
 	    StorageService.save("allTasks", items); //saves checked task into LocalStorage
       temp = StorageService.load("allTasks"); //assign new LocalStorage data with checked allTasks
+			editIndex = false;
     };
     
     service.removeItem = function(itemIndex){
