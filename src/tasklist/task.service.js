@@ -1,66 +1,62 @@
 
 (function(){
   'use strict';
-  
+	
   angular.module('TaskList')
-  .factory('TaskFactory', TaskFactory);
+  .service('TaskService', TaskService);
   
-//Service - TaskService
+  //Service - TaskService
   TaskService.$inject = ['StorageService'];
   function TaskService(StorageService){
     var service = this;
     var items = StorageService.load("allTasks");
     var temp = StorageService.load("allTasks");  //holds temporally LocalStorage data
-    var numberOfTasks = "";
-    var editIndex = false;
+	  var editIndex = false;
+	
+	  var addMe = "";
     
     service.addItem = function(task){
-    //check to see if task is already in the list
-      var found = false;
-      for(var i = 0; i < items.length; i++) {
-        if (items[i].task == task) {
-          found = true;
-          break;
-        }
-      }
-    
+	    //check to see if task is already in the list
       if(!task){
         return; //if no input
       }
-      else if(found === false && editIndex === false){
-        items.push({task: task, done: false});
+      else if(editIndex === false){
+		    var time = new Date().toLocaleString();
+        items.push({task: task, taskFormatted: task.replace(/\s+/g, " "), done: false, time: time});
         StorageService.save("allTasks", items); //saves new task into LocalStorage
         temp = StorageService.load("allTasks"); //assign new LocalStorage data 
       }
-    else if(editIndex !== false){
-        items[editIndex].task = task;
+	    else if(editIndex !== false){
+		    items[editIndex].task = task;
+		    items[editIndex].taskFormatted = task.replace(/\s+/g, " "); 
         //items.push({task: task, done: false});
         StorageService.save("allTasks", items); //saves new task into LocalStorage
         temp = StorageService.load("allTasks"); //assign new LocalStorage data 
       }
-      else{
-        throw new Error ("Item already in the list"); //throw this error when input same task
-      }
-    editIndex = false;
+	    editIndex = false;
+	    addMe = "";
     };
-  
-  service.edit = function(itemIndex){
-    editIndex = itemIndex;
-  };
-  
-  service.checkItem = function(itemIndex){
-    //console.log(items[itemIndex].done); 
-    items[itemIndex].done = true;
-    //console.log(items[itemIndex].done); 
-    StorageService.save("allTasks", items); //saves checked task into LocalStorage
+	
+	  //Empties the Input Field and Reset editIndex
+	  service.cleanTask = function(){
+	    addMe = "";
+	    editIndex = false;
+	  };
+	
+	  service.edit = function(itemIndex){
+	    editIndex = itemIndex;
+	    addMe = items[itemIndex].task;
+	  };
+	
+	  service.checkItem = function(itemIndex){
+	    items[itemIndex].done = true;
+	    StorageService.save("allTasks", items); //saves checked task into LocalStorage
       temp = StorageService.load("allTasks"); //assign new LocalStorage data with checked allTasks
     };
-  
+	
     service.unCheckItem = function(itemIndex){
-    //console.log(items[itemIndex].done); 
-    items[itemIndex].done = false;
-    //console.log(items[itemIndex].done); 
-    StorageService.save("allTasks", items); //saves checked task into LocalStorage
+	    items[itemIndex].done = false;
+	    StorageService.save("allTasks", items); //saves checked task into LocalStorage
       temp = StorageService.load("allTasks"); //assign new LocalStorage data with checked allTasks
     };
     
@@ -76,7 +72,7 @@
       StorageService.save("allTasks", items); //after clearing all allTasks, save to LocalStorage
     };
     
-    service.undo = function(){    
+    service.undo = function(){		
       items = temp;  //assign items to the previous data stored in temp
       StorageService.save("allTasks", items); //save to LocalStorage to update
     };
@@ -84,29 +80,12 @@
     service.getItems = function(){
       return items; 
     };
-    
-  service.howMany = function(){
-    if(items.length === 0){
-      numberOfTasks = ' ';
-    }
-    else if (items.length === 1){
-      numberOfTasks = items.length + ' task';
-    }
-    else{
-      numberOfTasks = items.length + ' tasks';
-    }
-    return numberOfTasks;
-  };
-  
+	
+	  service.getAddMe = function(){
+	    return addMe; 
+	  };
+	
   }
-
-//Factory - for TaskService
-  function TaskFactory(StorageService){
-    var factory = function(){
-      return new TaskService(StorageService);  
-    };
-    return factory;
-  }
-  
+	
 })();
 
