@@ -207,7 +207,7 @@ textarea {
   overflow: auto;
   outline: none;
   width: 100%;
-  height: 70vh;
+  height: 500px;
 }
 p{
 	white-space: pre-wrap;
