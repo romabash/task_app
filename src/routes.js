@@ -16,16 +16,16 @@
 
     //Home page
     .state('home', {
-		url: '/',
-		templateUrl: 'src/tasklist/templates/home-route.template.html',
-		controller: 'TaskCtrl as list',
+		  url: '/',
+		  templateUrl: 'src/tasklist/templates/home-route.template.html',
+		  controller: 'TaskCtrl as list',
 	  })
     
 		//User Add Input page
     .state('add', {
-	  url: '/add',
-		templateUrl: 'src/tasklist/templates/add-route.template.html',
-		controller: 'InputController as input'
+	    url: '/add',
+		  templateUrl: 'src/tasklist/templates/add-route.template.html',
+		  controller: 'InputController as input'
 	  }); 
 	}
 	

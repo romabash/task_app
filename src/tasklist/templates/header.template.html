@@ -41,7 +41,7 @@
 		    <!-- Add Button -->
 		    <div class="col-xs-1" ng-if="!$ctrl.showSearch">
 		      <a ui-sref="add">
-            <button class="btn pull-right add">
+            <button class="btn pull-right add" ng-click="$ctrl.cleanTask()">
 			        <span class="glyphicon glyphicon-plus"></span>
 			      </button>
 			    </a>

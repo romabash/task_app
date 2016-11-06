@@ -41,6 +41,11 @@
       list.items = TaskService.getItems(); //reinitialize items 
     };
 		
+	  //Service function to clear the Input Field and Reset editIndex
+	  list.cleanTask = function(){
+	    TaskService.cleanTask();
+	  };
+		
   }
 	
 })();

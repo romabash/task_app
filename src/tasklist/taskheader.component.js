@@ -9,7 +9,8 @@
 	  bindings: {
 	    items: '<',
 	    onUndo: '&',
-	    onClear: '&'
+	    onClear: '&',
+			onCleanTask: '&'
 	  } 
   });
   
@@ -76,6 +77,10 @@
 	    $rootScope.$broadcast('search:processing', {searchTerm: ""});
 	    $ctrl.searchTerm = "";
 	  };
+		
+		$ctrl.cleanTask = function(){
+	    $ctrl.onCleanTask();
+	  }
 	
 	  //$rootScope Listeners for UNDO Button
 	  var undoButtonListener = $rootScope.$on('undo:processing', function (event, data) {
